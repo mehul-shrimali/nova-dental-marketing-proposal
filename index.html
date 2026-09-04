@@ -162,6 +162,25 @@
   .adrow .picon{flex:none;width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:#1D4FB8}
   .adrow b{display:block;font:600 .93rem var(--sans);color:var(--ink)}
   .adrow p{margin:2px 0 0;font-size:.85rem;line-height:1.55;color:var(--muted)}
+  /* green-band pills + opportunity narrative */
+  .workwide{margin-top:clamp(12px,1.6vw,18px)}
+  .pillrow-k.ok{color:#1E7A4A;margin-top:0}
+  .pill-ok{background:#E2F2E7;color:#1E7A4A}
+  .oppstack{display:flex;flex-direction:column;gap:clamp(12px,1.6vw,18px)}
+  .stepk{
+    font:600 .7rem var(--sans);letter-spacing:.12em;text-transform:uppercase;
+    color:#1D4FB8;margin-bottom:12px;
+  }
+  .s1grid{display:grid;grid-template-columns:minmax(270px,340px) 1fr;gap:clamp(20px,3.4vw,48px);align-items:center}
+  .bigsay{
+    font-family:var(--serif);font-weight:500;font-optical-sizing:auto;
+    font-size:clamp(1.5rem,2.5vw,2rem);line-height:1.2;letter-spacing:-.01em;
+    color:var(--ink);margin:0 0 10px;text-wrap:balance;
+  }
+  .bigsay em{font-style:normal;color:#E5484D}
+  .bigsay-sm{font-size:clamp(1.25rem,1.9vw,1.55rem);margin-bottom:14px}
+  .s1p{margin:0;font-size:.96rem;line-height:1.65;color:var(--ink-soft);max-width:54ch}
+
   /* sources card: who carries her today vs what machines can't see */
   .src-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6vw,34px)}
   .srcrow{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
@@ -342,6 +361,7 @@
     .oppgrid{grid-template-columns:1fr}
     .explain-grid{grid-template-columns:1fr}
     .src-grid{grid-template-columns:1fr}
+    .s1grid{grid-template-columns:1fr}
   }
   @media (max-width:840px){
     .helpgrid{grid-template-columns:1fr}
@@ -422,80 +442,73 @@
         </div>
       </div>
 
+
+      <div class="wcard workwide">
+        <div class="pillrow-k ok">Searches you already appear in</div>
+        <div class="pills">
+          <span class="pill pill-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> accepting new patients</span>
+          <span class="pill pill-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> best dentist in Cupertino</span>
+          <span class="pill pill-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> top-rated for Invisalign</span>
+          <span class="pill pill-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> takes PPO insurance</span>
+        </div>
+      </div>
+
     </div>
 
     <div class="stand stand-opp">
       <div class="subhead"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg> Opportunities ahead</div>
-      <div class="oppgrid">
-        <div class="oppcol">
-          <div class="wcard">
-            <div class="wcard-h">Search visibility — SEO &amp; AEO</div>
-            <div class="pillrow-k">Appearing today</div>
-            <div class="pills">
-              <span class="pill pill-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> accepting new patients</span>
-              <span class="pill pill-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> best dentist in Cupertino</span>
-              <span class="pill pill-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> top-rated for Invisalign</span>
-              <span class="pill pill-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> takes PPO insurance</span>
-            </div>
-            <div class="pillrow-k">Not appearing yet — the searches to win</div>
-            <div class="pills">
-              <span class="pill pill-out">dental implants</span>
-              <span class="pill pill-out">emergency dentist</span>
-              <span class="pill pill-out">root canal</span>
-              <span class="pill pill-out">pediatric / kids dentist</span>
-              <span class="pill pill-out">open on Saturday</span>
-              <span class="pill pill-out">affordable dentist</span>
-            </div>
-            <p class="note"><b>The treatment pages already exist — implants, veneers, root canals, kids' dentistry.</b> They are just served in a way machines cannot read: empty HTML, no page titles, no schema, no sitemap. SEO and AI visibility go hand in hand, and the next step is making what is already built readable to both.</p>
-          </div>
-          <div class="wcard">
-            <div class="wcard-h">Advertising today</div>
-            <div class="adrow">
-              <span class="picon"><svg viewBox="0 0 48 48" style="width:18px;height:18px"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span>
-              <div><b>Google Ads: running, but only for new patients</b>
-              <p>Both live ads target "accepting new patients" — the area where the practice is already strongest organically. Treatment and urgent-care searches have no coverage, paid or organic.</p></div>
-            </div>
-            <div class="adrow">
-              <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l14-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
-              <div><b>Meta / Instagram: not switched on yet</b>
-              <p>An untapped channel for reaching local patients and families.</p></div>
-            </div>
-          </div>
-        </div>
+      <div class="oppstack">
 
         <div class="wcard">
-          <div class="gauge-head">
-            <div class="gauge-title">AI Visibility
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/></svg>
-            </div>
-            <div class="gauge-bubble">How often AI assistants mention the practice today</div>
-          </div>
-          <div class="gauge-wrap">
-            <svg viewBox="0 0 200 118" role="img" aria-label="AI visibility score 20 of 100, low">
+          <div class="stepk">1 · Your AI visibility today</div>
+          <div class="s1grid">
+            <div>
+              <div class="gauge-wrap">
+                <svg viewBox="0 0 200 118" role="img" aria-label="AI visibility score 20 of 100, low">
               <path d="M20,100 A80,80 0 0 1 180,100" fill="none" stroke="#E9EDF4" stroke-width="20" stroke-linecap="round"/>
               <path d="M20,100 A80,80 0 0 1 180,100" fill="none" stroke="#E5484D" stroke-width="20" stroke-linecap="round" stroke-dasharray="50.3 251.3"/>
               <circle cx="35.3" cy="53" r="6.5" fill="#fff" stroke="#E5484D" stroke-width="4"/>
               <text x="100" y="80" text-anchor="middle" class="gauge-score"><tspan class="v">20</tspan><tspan class="of">/100</tspan></text>
               <text x="100" y="112" text-anchor="middle" class="gauge-word">Low</text>
             </svg>
-          </div>
-          <div class="gauge-split">
-            <div class="gauge-mentions">
-              <div class="k">Mentions</div>
-              <div class="v">12</div>
-              <p>of 60 AI answers</p>
+              </div>
+              <div class="gauge-split">
+                <div class="gauge-mentions">
+                  <div class="k">Mentions</div>
+                  <div class="v">12</div>
+                  <p>of 60 AI answers</p>
+                </div>
+                <div>
+                  <div class="sysrow"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.6A8.5 8.5 0 1 1 21 12z"/></svg></span>ChatGPT<span class="cnt">8<small> / 30</small></span></div>
+              <div class="sysrow"><span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.6 5.4 4.6 9.4 10 10-5.4.6-9.4 4.6-10 10-.6-5.4-4.6-9.4-10-10 5.4-.6 9.4-4.6 10-10z"/></svg></span>Gemini<span class="cnt">4<small> / 30</small></span></div>
+            </div>
+              </div>
             </div>
             <div>
-              <div class="sysrow"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.6A8.5 8.5 0 1 1 21 12z"/></svg></span>ChatGPT<span class="cnt">8<small> / 30</small></span></div>
-              <div class="sysrow"><span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.6 5.4 4.6 9.4 10 10-5.4.6-9.4 4.6-10 10-.6-5.4-4.6-9.4-10-10 5.4-.6 9.4-4.6 10-10z"/></svg></span>Gemini<span class="cnt">4<small> / 30</small></span></div>
+              <p class="bigsay">Your AI visibility is <em>low</em>.</p>
+              <p class="s1p">We asked ChatGPT and Gemini the ten questions patients around Cupertino ask when choosing a dentist — three times each, 60 answers in all. Nova Dental appeared in 12. Four out of five recommendations went to other practices.</p>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="wcard explain">
-        <div class="wcard-h">Where the recommendations come from today</div>
-        <div class="src-grid">
+        <div class="wcard">
+          <div class="stepk">2 · What that means</div>
+          <p class="bigsay bigsay-sm">You are not appearing in searches like these:</p>
+          <div class="pills">
+            <span class="pill pill-out">dental implants</span>
+            <span class="pill pill-out">emergency dentist</span>
+            <span class="pill pill-out">root canal</span>
+            <span class="pill pill-out">pediatric / kids dentist</span>
+            <span class="pill pill-out">open on Saturday</span>
+            <span class="pill pill-out">affordable dentist</span>
+          </div>
+          <p class="note">These are the searches that bring high-value new patients — and today they go to other practices.</p>
+        </div>
+
+        <div class="wcard">
+          <div class="stepk">3 · The reason</div>
+          <div class="wcard-h">The visibility you do have is borrowed</div>
+          <div class="src-grid">
           <div>
             <div class="pillrow-k">What AI actually cited when it named Nova Dental</div>
             <div class="srcrow"><b>Zocdoc</b><span class="desc">directory listing</span><span class="srccnt">cited 8×</span></div>
@@ -521,7 +534,7 @@
         </div>
       </div>
 
-      <div class="wcard explain">
+        <div class="wcard explain">
         <div class="wcard-h">Why a beautiful website can still be invisible</div>
         <div class="explain-grid">
           <div class="ex"><span class="exn">1</span><b>AI assistants can't read the pages</b>
@@ -538,6 +551,21 @@
         <p class="ex-fix"><b>The fix changes nothing patients see.</b> Same design, same words — we serve them in a form machines can read, add page titles and structured data, and publish a sitemap. One pass, and every treatment page benefits at once.</p>
       </div>
 
+        <div class="wcard">
+            <div class="wcard-h">Advertising today</div>
+            <div class="adrow">
+              <span class="picon"><svg viewBox="0 0 48 48" style="width:18px;height:18px"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span>
+              <div><b>Google Ads: running, but only for new patients</b>
+              <p>Both live ads target "accepting new patients" — the area where the practice is already strongest organically. Treatment and urgent-care searches have no coverage, paid or organic.</p></div>
+            </div>
+            <div class="adrow">
+              <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l14-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+              <div><b>Meta / Instagram: not switched on yet</b>
+              <p>An untapped channel for reaching local patients and families.</p></div>
+            </div>
+          </div>
+
+      </div>
     </div>
     <p class="scan-note">From the Glace AI visibility scan of Nova Dental, September 2026: ten common patient questions, each asked three times on ChatGPT and Gemini — 60 answers in total. The full report is available to review together.</p>
   </section>
