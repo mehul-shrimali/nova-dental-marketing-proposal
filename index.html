@@ -184,7 +184,9 @@
 
   /* sources card: who carries her today vs what machines can't see */
   .src-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6vw,34px)}
-  .cite{display:grid;grid-template-columns:132px 1fr 30px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+  .cite{display:grid;grid-template-columns:26px 104px 1fr 30px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+  .cico{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid var(--line);overflow:hidden}
+  .cico img{width:16px;height:16px;object-fit:contain;display:block}
   .cite:last-of-type{border-bottom:0}
   .cname{font:600 .9rem var(--sans);color:var(--ink)}
   .cbar{height:8px;border-radius:4px;background:#E9EDF4;overflow:hidden}
@@ -596,6 +598,7 @@
             <span class="pill pill-out">dental implants</span>
             <span class="pill pill-out">emergency dentist</span>
             <span class="pill pill-out">root canal</span>
+            <span class="pill pill-out">veneers / cosmetic dentistry</span>
             <span class="pill pill-out">pediatric / kids dentist</span>
             <span class="pill pill-out">affordable dentist</span>
           </div>
@@ -608,11 +611,10 @@
           <div class="src-grid">
           <div>
             <div class="pillrow-k">What AI actually cited when it named Nova Dental</div>
-            <div class="cite"><span class="cname">Zocdoc</span><span class="cbar"><i style="width:100%"></i></span><span class="ccnt">8×</span></div>
-            <div class="cite"><span class="cname">Your homepage</span><span class="cbar"><i style="width:62%"></i></span><span class="ccnt">5×</span></div>
-            <div class="cite"><span class="cname">Opencare</span><span class="cbar"><i style="width:38%"></i></span><span class="ccnt">3×</span></div>
-            <div class="cite"><span class="cname">Birdeye</span><span class="cbar"><i style="width:13%"></i></span><span class="ccnt">1×</span></div>
-            <p class="cite-foot">Plus your Google reviews &amp; Business Profile behind every answer. From the homepage, only the "accepting new patients" line gets through.</p>
+            <div class="cite"><span class="cico"><img src="assets/ico-zocdoc.png" alt=""></span><span class="cname">Zocdoc</span><span class="cbar"><i style="width:100%"></i></span><span class="ccnt">8×</span></div>
+            <div class="cite"><span class="cico"><img src="assets/ico-opencare.png" alt=""></span><span class="cname">Opencare</span><span class="cbar"><i style="width:38%"></i></span><span class="ccnt">3×</span></div>
+            <div class="cite"><span class="cico"><img src="assets/ico-birdeye.png" alt=""></span><span class="cname">Birdeye</span><span class="cbar"><i style="width:13%"></i></span><span class="ccnt">1×</span></div>
+            <p class="cite-foot">Plus your Google reviews &amp; Business Profile behind every answer. Your homepage was cited 5 times too, but even it is barely readable: the only line AI crawlers can pull from it is "accepting new patients".</p>
           </div>
           <div>
             <div class="pillrow-k">What Google &amp; ChatGPT cannot see yet</div>
