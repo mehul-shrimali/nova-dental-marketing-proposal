@@ -162,6 +162,29 @@
   .adrow .picon{flex:none;width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:#1D4FB8}
   .adrow b{display:block;font:600 .93rem var(--sans);color:var(--ink)}
   .adrow p{margin:2px 0 0;font-size:.85rem;line-height:1.55;color:var(--muted)}
+  /* why-invisible explainer */
+  .explain{margin-top:clamp(12px,1.6vw,18px)}
+  .explain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px);margin-top:4px}
+  .ex .exn{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:28px;height:28px;border-radius:50%;margin-bottom:8px;
+    background:#E3ECFB;color:#1D4FB8;font:600 .8rem var(--sans);
+  }
+  .ex b{display:block;font:600 .95rem var(--sans);color:var(--ink);margin-bottom:4px}
+  .ex p{margin:0;font-size:.88rem;line-height:1.6;color:var(--ink-soft)}
+  .ex-quote{
+    display:flex;gap:12px;align-items:flex-start;
+    margin-top:18px;padding:14px 18px;
+    background:#F4F7FD;border-left:3px solid #2F6BE0;border-radius:0 12px 12px 0;
+  }
+  .ex-quote blockquote{
+    margin:0;font-family:var(--serif);font-style:italic;font-optical-sizing:auto;
+    font-size:1.02rem;line-height:1.55;color:var(--ink);
+  }
+  .ex-quote cite{display:block;margin-top:6px;font:500 .78rem var(--sans);font-style:normal;color:var(--muted)}
+  .ex-fix{margin:16px 0 0;font-size:.92rem;line-height:1.6;color:var(--ink-soft)}
+  .ex-fix b{color:var(--ink)}
+
   /* gauge card */
   .gauge-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .gauge-title{display:flex;align-items:center;gap:8px;font:700 1.25rem var(--sans);color:var(--ink)}
@@ -307,6 +330,7 @@
   @media (max-width:1020px){
     .badges{grid-template-columns:1fr 1fr}
     .oppgrid{grid-template-columns:1fr}
+    .explain-grid{grid-template-columns:1fr}
   }
   @media (max-width:840px){
     .helpgrid{grid-template-columns:1fr}
@@ -456,6 +480,23 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="wcard explain">
+        <div class="wcard-h">Why a beautiful website can still be invisible</div>
+        <div class="explain-grid">
+          <div class="ex"><span class="exn">1</span><b>AI assistants can't read the pages</b>
+          <p>The website is built entirely in JavaScript. Patients see it perfectly — but ChatGPT and Gemini receive an empty page. The implant, veneer, and kids-dentistry pages you wrote never reach them.</p></div>
+          <div class="ex"><span class="exn">2</span><b>Google has no map, and no labels</b>
+          <p>There is no sitemap telling Google which pages exist, and no page has a title or description — so even when Google finds a page, it can't tell what that page is about.</p></div>
+          <div class="ex"><span class="exn">3</span><b>So the recommendations go elsewhere</b>
+          <p>Competitors' treatment pages are fully readable, so AI reads and cites their websites directly. Nova Dental gets recommended only through directories and reviews — visibility that is borrowed, not owned.</p></div>
+        </div>
+        <div class="ex-quote">
+          <blockquote>"The site is currently exposing only a JavaScript shell to my web reader, so I can't reliably see the actual dental-implant page copy."
+          <cite>— ChatGPT, when asked to read novadentalcupertino.com/dental-implants (September 2026)</cite></blockquote>
+        </div>
+        <p class="ex-fix"><b>The fix changes nothing patients see.</b> Same design, same words — we serve them in a form machines can read, add page titles and structured data, and publish a sitemap. One pass, and every treatment page benefits at once.</p>
       </div>
 
     </div>
