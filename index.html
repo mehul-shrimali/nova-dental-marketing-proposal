@@ -122,6 +122,14 @@
   .glogo{width:15px;height:15px;flex:none}
   .badge b{display:block;font:600 .92rem var(--sans);color:var(--ink);margin-top:4px}
   .badge p{margin:2px 0 0;font-size:.82rem;line-height:1.5;color:var(--muted)}
+  .badge .stmt{
+    margin:8px 0 0;
+    font-family:var(--serif);font-weight:500;font-optical-sizing:auto;
+    font-size:clamp(1.2rem,1.65vw,1.42rem);line-height:1.32;
+    letter-spacing:-.008em;color:var(--ink);text-wrap:balance;
+  }
+  .badge .stmt em{font-style:normal;color:#2F6BE0;font-size:1.08em}
+  .badge .ctx{margin:8px 0 0;font:500 .78rem var(--sans);letter-spacing:.02em;color:var(--muted)}
   .oppgrid{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(12px,1.6vw,18px);align-items:stretch}
   .oppcol{display:flex;flex-direction:column;gap:clamp(12px,1.6vw,18px)}
   .wcard{
@@ -358,11 +366,21 @@
             </svg>
             135 Google reviews
           </b>
-          <p>Patients love this practice — a perfect 5.0, and new reviews are still coming in every month</p>
+          <p class="stmt">Patients <em>love</em> this practice</p>
+          <p class="ctx">and new reviews land every month</p>
         </div>
-        <div class="badge"><div class="bn">2 of 3</div><b>AI already recommends you</b><p>Ask ChatGPT or Gemini who is accepting new patients in Cupertino, and Nova Dental is in the answer two times out of three</p></div>
-        <div class="badge"><div class="bn">1 in 2</div><b>On the "best dentist" shortlists</b><p>When patients ask for the best or top-rated dentist in town, you make the list half the time</p></div>
-        <div class="badge"><div class="bn">&#10003;</div><b>Your details are right, everywhere</b><p>Address, phone, hours, insurance — every mention we checked gives patients the correct information</p></div>
+        <div class="badge">
+          <p class="stmt">You appear <em>2 out of 3 times</em> in new-patient searches</p>
+          <p class="ctx">on ChatGPT &amp; Gemini</p>
+        </div>
+        <div class="badge">
+          <p class="stmt">You make <em>1 in 2</em> "best dentist in Cupertino" lists</p>
+          <p class="ctx">in AI answers</p>
+        </div>
+        <div class="badge">
+          <p class="stmt">Your details are <em>right everywhere</em> patients look</p>
+          <p class="ctx">address · phone · hours · insurance</p>
+        </div>
       </div>
 
       <div class="subhead"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg> Opportunities ahead</div>
