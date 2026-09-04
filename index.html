@@ -8,26 +8,40 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Instrument+Sans:wght@400;500;600;700&family=Geist:wght@400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#101a2e;
-    --body:#33405a;
-    --muted:#5d6a83;
-    --accent:#1e5f78;
-    --accent-soft:#eaf1f5;
-    --line:#e3e8ef;
-    --bg:#fbfaf8;
-    --card:#ffffff;
-    --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
-    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --paper:    oklch(0.978 0.005 220);
+    --card:     oklch(0.995 0.003 220);
+    --ink:      oklch(0.255 0.024 230);
+    --ink-soft: oklch(0.435 0.020 228);
+    --muted:    oklch(0.565 0.016 226);
+    --line:     oklch(0.885 0.012 222);
+    --line-2:   oklch(0.825 0.016 222);
+    --accent-h: 222;
+    --accent:      oklch(0.605 0.115 var(--accent-h));
+    --accent-deep: oklch(0.36 0.105 var(--accent-h));
+    --accent-700:  oklch(0.43 0.115 var(--accent-h));
+    --accent-soft: oklch(0.965 0.022 var(--accent-h));
+    --accent-mid:  oklch(0.915 0.040 var(--accent-h));
+    --deep:    oklch(0.265 0.052 232);
+    --deep-2:  oklch(0.225 0.044 234);
+    --on-deep: oklch(0.945 0.018 222);
+    --on-deep-soft: oklch(0.80 0.028 222);
+    --box-blue:#E9EEFB;
+    --box-warm:#F4F4F2;
+    --radius:14px;
+    --radius-lg:22px;
+    --radius-box:26px;
+    --serif:'Newsreader',Georgia,'Times New Roman',serif;
+    --sans:'Instrument Sans','Inter',system-ui,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-text-size-adjust:100%}
   body{
-    background:var(--bg);color:var(--body);
-    font:400 1.02rem/1.65 var(--sans);
-    padding:clamp(24px,4vw,48px) clamp(18px,4vw,48px) 56px;
+    background:#fff;color:var(--ink-soft);
+    font:400 1rem/1.7 var(--sans);
+    padding:clamp(24px,4vw,48px) clamp(18px,4vw,48px) 0;
   }
   .page{max-width:1120px;margin:0 auto}
 
@@ -35,128 +49,164 @@
   .collab{
     display:flex;align-items:center;gap:clamp(16px,3vw,30px);
     flex-wrap:wrap;
-    padding-bottom:clamp(18px,3vw,26px);margin-bottom:clamp(28px,4.5vw,44px);
+    padding-bottom:clamp(18px,3vw,26px);margin-bottom:clamp(34px,5vw,56px);
     border-bottom:1px solid var(--line);
   }
   .collab img.logo-nova{height:clamp(48px,6vw,62px);width:auto;display:block}
-  .collab .x{
-    font:300 clamp(1.3rem,2.4vw,1.7rem)/1 var(--sans);color:#b9c2d0;
-  }
+  .collab .x{font:300 clamp(1.3rem,2.4vw,1.7rem)/1 var(--sans);color:var(--line-2)}
   .glace-lockup{display:flex;align-items:center;gap:12px}
   .glace-lockup img{height:clamp(34px,4.4vw,44px);width:auto;display:block}
   .glace-lockup .word{
-    font:600 clamp(1.05rem,2vw,1.3rem) var(--sans);letter-spacing:.36em;
+    font-family:'Geist',system-ui,sans-serif;font-weight:400;
+    font-size:clamp(1.1rem,2vw,1.35rem);letter-spacing:.34em;
     color:var(--ink);transform:translateY(1px);
   }
   .collab .tag{
-    margin-left:auto;color:var(--muted);font-size:.88rem;
-    letter-spacing:.08em;text-transform:uppercase;
+    margin-left:auto;color:var(--muted);
+    font:600 .7rem var(--sans);letter-spacing:.12em;text-transform:uppercase;
+  }
+
+  /* ---- kicker voice (homepage eyebrow) ---- */
+  .kicker{
+    display:block;
+    font:600 .7rem var(--sans);letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent-deep);margin-bottom:14px;
   }
 
   /* ---- hero ---- */
-  .hero{margin-bottom:clamp(30px,4.5vw,48px)}
+  .hero{margin-bottom:clamp(36px,5.5vw,64px)}
   h1{
-    font:500 clamp(1.9rem,3.6vw,2.9rem)/1.16 var(--serif);color:var(--ink);
-    text-wrap:balance;
+    font-family:var(--serif);font-weight:500;font-optical-sizing:auto;
+    font-size:clamp(2.1rem,4.4vw,3.4rem);line-height:1.08;
+    letter-spacing:-.012em;color:var(--ink);text-wrap:balance;
   }
-  .lede{font-size:1.07rem;color:var(--body);max-width:80ch;margin-top:14px}
+  .lede{
+    font-size:clamp(.98rem,1.15vw,1.08rem);line-height:1.7;
+    color:var(--ink-soft);max-width:72ch;margin-top:clamp(16px,2vw,24px);
+    text-wrap:pretty;
+  }
   .lede b{color:var(--ink);font-weight:600}
 
+  /* ---- section heads ---- */
+  section{margin-bottom:clamp(44px,6.5vw,80px)}
   h2{
-    font:500 clamp(1.35rem,2.2vw,1.65rem)/1.3 var(--serif);color:var(--ink);
-    margin:clamp(34px,5vw,52px) 0 16px;
+    font-family:var(--serif);font-weight:500;font-optical-sizing:auto;
+    font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.15;
+    letter-spacing:-.012em;color:var(--ink);margin-bottom:8px;
   }
+  .sechead{margin-bottom:clamp(20px,3vw,30px)}
+  .sechead p{color:var(--muted);max-width:62ch;margin-top:6px}
 
-  /* ---- service cards ---- */
-  .helpgrid{
-    display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,22px);
-  }
+  /* ---- module cards: homepage warm/periwinkle alternation, borderless ---- */
+  .helpgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.2vw,24px)}
   .cardbox{
-    background:var(--card);border:1px solid var(--line);border-radius:16px;
-    padding:clamp(18px,2.4vw,26px);
+    border-radius:var(--radius-box);
+    padding:clamp(22px,2.8vw,32px);
+    box-shadow:0 24px 60px -36px rgba(16,23,42,.35);
   }
+  .cardbox:nth-child(odd){background:var(--box-warm)}
+  .cardbox:nth-child(even){background:var(--box-blue)}
   .cardbox.wide{grid-column:1/-1}
-  .cardbox.wide ul{columns:2;column-gap:36px}
+  .cardbox.wide ul{columns:2;column-gap:40px}
   .cardbox.wide li{break-inside:avoid}
   h3{
     display:flex;align-items:center;
-    font:600 1.04rem/1.35 var(--sans);color:var(--ink);
-    margin-bottom:4px;
+    font-family:var(--serif);font-weight:500;font-optical-sizing:auto;
+    font-size:clamp(1.18rem,1.6vw,1.38rem);line-height:1.25;
+    letter-spacing:-.008em;color:var(--ink);
+    margin-bottom:6px;
   }
   h3 .n{
     display:inline-flex;align-items:center;justify-content:center;
-    width:1.55em;height:1.55em;margin-right:10px;border-radius:999px;
-    background:var(--accent-soft);color:var(--accent);
-    font:600 .78em/1 var(--sans);flex-shrink:0;
+    width:34px;height:34px;margin-right:12px;border-radius:50%;
+    background:#fff;color:var(--accent-deep);border:1px solid var(--accent-mid);
+    font:600 .82rem var(--sans);flex-shrink:0;
   }
   p{margin:8px 0}
-  .sub{color:var(--muted);margin:2px 0 10px;font-size:.97rem}
+  .sub{color:var(--muted);margin:2px 0 12px;font-size:.95rem;line-height:1.62}
   ul{margin:6px 0 4px;padding-left:0;list-style:none}
-  li{position:relative;padding-left:20px;margin:5px 0}
+  li{position:relative;padding-left:22px;margin:6px 0;font-size:.95rem;line-height:1.62}
   li::before{
-    content:"";position:absolute;left:2px;top:.62em;
-    width:7px;height:7px;border-radius:999px;
-    background:var(--accent);opacity:.55;
+    content:"";position:absolute;left:2px;top:.66em;
+    width:6px;height:6px;border-radius:50%;
+    background:var(--accent-700);
   }
   .aside{
-    margin:14px 0 2px;padding:11px 14px;
-    border-left:2px solid var(--accent);
-    background:var(--accent-soft);border-radius:0 10px 10px 0;
-    color:var(--ink);font-size:.95rem;
+    margin:16px 0 2px;padding:14px 18px;
+    background:#fff;border-radius:var(--radius);
+    color:var(--ink-soft);font-size:.92rem;line-height:1.62;
+    font-family:var(--serif);font-style:italic;font-optical-sizing:auto;
   }
+  .cardbox p:not(.sub):not(.aside){font-size:.95rem;line-height:1.62}
 
   /* ---- flow ---- */
   .flow{
-    padding:clamp(18px,2.4vw,26px);
-    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:clamp(22px,2.8vw,32px);
+    background:var(--box-warm);border-radius:var(--radius-box);
+    box-shadow:0 24px 60px -36px rgba(16,23,42,.35);
   }
   .flow-line{
-    display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;
-    font:600 1rem var(--sans);color:var(--accent);margin-bottom:10px;
+    display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;
+    margin-bottom:12px;
   }
-  .flow-line span::after{content:"→";margin-left:12px;color:#b9c2d0;font-weight:400}
+  .flow-line span{
+    font-family:var(--serif);font-weight:500;font-optical-sizing:auto;
+    font-size:clamp(1.1rem,1.7vw,1.4rem);letter-spacing:-.008em;
+    color:var(--accent-deep);
+  }
+  .flow-line span::after{content:"→";margin-left:14px;color:var(--line-2);font-family:var(--sans);font-weight:400}
   .flow-line span:last-child::after{content:""}
-  .flow p{max-width:90ch}
+  .flow p{max-width:90ch;font-size:.95rem;line-height:1.62;color:var(--ink-soft)}
 
   /* ---- pricing ---- */
-  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--card)}
-  table{width:100%;border-collapse:collapse;font-size:.97rem;min-width:560px}
-  th,td{padding:12px 20px;text-align:left;vertical-align:top}
+  .tablewrap{
+    overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-lg);
+    background:var(--card);
+  }
+  table{width:100%;border-collapse:collapse;font-size:.94rem;min-width:560px}
+  th,td{padding:13px 22px;text-align:left;vertical-align:top;line-height:1.55}
   th{
-    font:600 .78rem var(--sans);letter-spacing:.06em;text-transform:uppercase;
+    font:600 .7rem var(--sans);letter-spacing:.12em;text-transform:uppercase;
     color:var(--muted);border-bottom:1px solid var(--line);
   }
-  td{border-bottom:1px solid var(--line);color:var(--body)}
+  td{border-bottom:1px solid var(--line);color:var(--ink-soft)}
   tr:last-child td{border-bottom:0}
   td:last-child,th:last-child{text-align:right}
-  td b{color:var(--ink)}
+  td b{color:var(--accent-deep);font-weight:600}
+  .principle{max-width:80ch}
 
-  .principle{max-width:90ch}
-  .principle h3{margin:0 0 2px}
-
+  /* ---- dark closing band (homepage audit/footer surface) ---- */
+  .closing{
+    background:var(--deep-2);border-radius:var(--radius-box) var(--radius-box) 0 0;
+    margin:clamp(48px,7vw,88px) calc(-1*clamp(18px,4vw,48px)) 0;
+    padding:clamp(48px,6.5vw,84px) clamp(18px,4vw,48px) clamp(40px,5vw,60px);
+  }
+  .closing-inner{max-width:1120px;margin:0 auto}
+  .closing .kicker{color:var(--accent-bright, #8FB8D8)}
   .goal{
-    margin-top:clamp(28px,4vw,40px);padding:clamp(20px,3vw,30px) clamp(22px,3.4vw,34px);
-    background:var(--ink);color:#eef2f8;border-radius:18px;
-    font:500 clamp(1.08rem,1.7vw,1.28rem)/1.5 var(--serif);text-wrap:balance;
+    font-family:var(--serif);font-weight:500;font-optical-sizing:auto;
+    font-size:clamp(1.4rem,2.6vw,2.1rem);line-height:1.25;
+    letter-spacing:-.012em;color:#fff;max-width:32ch;text-wrap:balance;
   }
+  .goal em{font-style:normal;color:var(--box-blue)}
   footer{
-    margin-top:32px;padding-top:18px;border-top:1px solid var(--line);
+    max-width:1120px;margin:clamp(36px,5vw,56px) auto 0;
+    padding-top:20px;border-top:1px solid oklch(0.40 0.040 222 / 0.55);
     display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;
-    color:var(--muted);font-size:.9rem;
+    color:var(--on-deep-soft);font-size:.88rem;
   }
-  footer a{color:var(--accent);text-decoration:none}
-  footer a:hover{text-decoration:underline}
+  footer a{color:var(--on-deep);text-decoration:none}
+  footer a:hover{color:#fff;text-decoration:underline}
 
   @media (max-width:840px){
-    .hero{grid-template-columns:1fr}
     .helpgrid{grid-template-columns:1fr}
     .cardbox.wide ul{columns:1}
     .collab .tag{display:none}
   }
   @media print{
-    body{background:#fff;padding:0}
-    .cardbox,.tablewrap,.flow{border-color:#ccc}
-    .goal{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body{background:#fff;padding:12px}
+    .cardbox,.flow{box-shadow:none;border:1px solid #ddd}
+    .closing{background:var(--deep-2);-webkit-print-color-adjust:exact;print-color-adjust:exact;border-radius:var(--radius-box)}
   }
 </style>
 </head>
@@ -174,115 +224,141 @@
   </header>
 
   <div class="hero">
+    <span class="kicker">Prepared for Nova Dental Cupertino</span>
     <h1>A Practice Growth Plan for Nova&nbsp;Dental</h1>
     <p class="lede">Nova Dental already has a strong foundation across its website, reviews, and Google presence. Our goal is not to replace what is already working. We can work alongside the existing setup and take responsibility for the parts of marketing that help more prospective patients <b>discover, trust, and choose the practice</b>.</p>
   </div>
 
-  <h2>What Glace can help with</h2>
-  <div class="helpgrid">
-
-    <div class="cardbox">
-      <h3><span class="n">1</span>Search &amp; AI Visibility</h3>
-      <p class="sub">Help Nova Dental show up more consistently when local patients are actively looking for care.</p>
-      <ul>
-        <li>Local SEO and treatment/service visibility</li>
-        <li>Google Business Profile and search visibility</li>
-        <li>AI search / AEO across platforms such as ChatGPT and Gemini</li>
-        <li>Content and page improvements based on what patients are actually searching for</li>
-        <li>Regular visibility scans to see what is changing</li>
-        <li>Review the existing Google Ads setup and identify improvements before deciding whether anything needs to change</li>
-      </ul>
+  <section>
+    <div class="sechead">
+      <span class="kicker">Scope</span>
+      <h2>What Glace can help with</h2>
     </div>
+    <div class="helpgrid">
 
-    <div class="cardbox">
-      <h3><span class="n">2</span>Content &amp; Patient Trust</h3>
-      <p class="sub">Turn the trust Nova Dental has already built with patients into reusable marketing content.</p>
-      <ul>
-        <li>Edit patient testimonial videos into polished short-form content</li>
-        <li>Doctor-led educational videos and treatment explainers</li>
-        <li>Practice, team, and patient-experience content</li>
-        <li>Short-form content for Instagram and Facebook</li>
-        <li>Repurpose the strongest content for the website and paid ads</li>
-      </ul>
-      <p class="aside">One good patient story can become a testimonial video, social post, website asset, and paid-ad creative instead of living in only one place.</p>
+      <div class="cardbox">
+        <h3><span class="n">1</span>Search &amp; AI Visibility</h3>
+        <p class="sub">Help Nova Dental show up more consistently when local patients are actively looking for care.</p>
+        <ul>
+          <li>Local SEO and treatment/service visibility</li>
+          <li>Google Business Profile and search visibility</li>
+          <li>AI search / AEO across platforms such as ChatGPT and Gemini</li>
+          <li>Content and page improvements based on what patients are actually searching for</li>
+          <li>Regular visibility scans to see what is changing</li>
+          <li>Review the existing Google Ads setup and identify improvements before deciding whether anything needs to change</li>
+        </ul>
+      </div>
+
+      <div class="cardbox">
+        <h3><span class="n">2</span>Content &amp; Patient Trust</h3>
+        <p class="sub">Turn the trust Nova Dental has already built with patients into reusable marketing content.</p>
+        <ul>
+          <li>Edit patient testimonial videos into polished short-form content</li>
+          <li>Doctor-led educational videos and treatment explainers</li>
+          <li>Practice, team, and patient-experience content</li>
+          <li>Short-form content for Instagram and Facebook</li>
+          <li>Repurpose the strongest content for the website and paid ads</li>
+        </ul>
+        <p class="aside">One good patient story can become a testimonial video, social post, website asset, and paid-ad creative instead of living in only one place.</p>
+      </div>
+
+      <div class="cardbox">
+        <h3><span class="n">3</span>New-Patient Acquisition</h3>
+        <p class="sub">Use paid campaigns to bring Nova Dental in front of more prospective patients around Cupertino.</p>
+        <ul>
+          <li>Meta / Instagram campaign setup</li>
+          <li>Local targeting around the practice</li>
+          <li>New-patient and treatment-specific campaigns</li>
+          <li>Retargeting where useful</li>
+          <li>Test different creative and messages</li>
+          <li>Optimize toward patient inquiries and booked appointments — not follower count</li>
+        </ul>
+        <p>Google Ads can also be reviewed and managed if Nova Dental would like us to take that over.</p>
+      </div>
+
+      <div class="cardbox">
+        <h3><span class="n">4</span>Website &amp; Online Booking</h3>
+        <p class="sub">Make small, practical website changes that help campaigns perform better and help more visitors book an appointment.</p>
+        <ul>
+          <li>Campaign or treatment landing pages</li>
+          <li>Testimonial placement</li>
+          <li>Calls-to-action and lead forms</li>
+          <li>Service-page updates</li>
+          <li>Booking-flow improvements</li>
+          <li>Small website changes required by campaigns or search visibility</li>
+        </ul>
+      </div>
+
+      <div class="cardbox wide">
+        <h3><span class="n">5</span>Measurement &amp; Ongoing Improvement</h3>
+        <p class="sub">The objective is not simply to run more marketing. We want to understand what is actually creating patient opportunities.</p>
+        <ul>
+          <li>Track new-patient inquiries and booking signals where possible</li>
+          <li>Understand which content and channels are working</li>
+          <li>Review performance regularly</li>
+          <li>Shift effort toward what is producing results</li>
+          <li>Keep testing and improving over time</li>
+        </ul>
+      </div>
+
     </div>
+  </section>
 
-    <div class="cardbox">
-      <h3><span class="n">3</span>New-Patient Acquisition</h3>
-      <p class="sub">Use paid campaigns to bring Nova Dental in front of more prospective patients around Cupertino.</p>
-      <ul>
-        <li>Meta / Instagram campaign setup</li>
-        <li>Local targeting around the practice</li>
-        <li>New-patient and treatment-specific campaigns</li>
-        <li>Retargeting where useful</li>
-        <li>Test different creative and messages</li>
-        <li>Optimize toward patient inquiries and booked appointments — not follower count</li>
-      </ul>
-      <p>Google Ads can also be reviewed and managed if Nova Dental would like us to take that over.</p>
+  <section>
+    <div class="sechead">
+      <span class="kicker">Process</span>
+      <h2>How we take it into action</h2>
     </div>
-
-    <div class="cardbox">
-      <h3><span class="n">4</span>Website &amp; Online Booking</h3>
-      <p class="sub">Make small, practical website changes that help campaigns perform better and help more visitors book an appointment.</p>
-      <ul>
-        <li>Campaign or treatment landing pages</li>
-        <li>Testimonial placement</li>
-        <li>Calls-to-action and lead forms</li>
-        <li>Service-page updates</li>
-        <li>Booking-flow improvements</li>
-        <li>Small website changes required by campaigns or search visibility</li>
-      </ul>
+    <div class="flow">
+      <div class="flow-line"><span>Understand</span><span>Create</span><span>Distribute</span><span>Measure</span><span>Improve</span></div>
+      <p>We first understand what Nova Dental is already doing, what is working, and which treatments or patient segments matter most. From there, we create the content and campaigns, distribute them across the right channels, measure the response, and continuously improve the mix.</p>
     </div>
+  </section>
 
-    <div class="cardbox wide">
-      <h3><span class="n">5</span>Measurement &amp; Ongoing Improvement</h3>
-      <p class="sub">The objective is not simply to run more marketing. We want to understand what is actually creating patient opportunities.</p>
-      <ul>
-        <li>Track new-patient inquiries and booking signals where possible</li>
-        <li>Understand which content and channels are working</li>
-        <li>Review performance regularly</li>
-        <li>Shift effort toward what is producing results</li>
-        <li>Keep testing and improving over time</li>
-      </ul>
+  <section>
+    <div class="sechead">
+      <span class="kicker">Pricing</span>
+      <h2>Introductory Pilot Pricing</h2>
+      <p>The idea is to start with a low-risk first month, learn what is worth continuing, and then agree on the ongoing scope together.</p>
     </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Area</th><th>Introductory pricing</th></tr></thead>
+        <tbody>
+          <tr><td>Initial marketing review &amp; growth plan</td><td>Included</td></tr>
+          <tr><td>Search + AI visibility / AEO / SEO</td><td><b>$0 for Month 1</b>, then <b>$100/month</b></td></tr>
+          <tr><td>Meta / Instagram campaign setup &amp; management</td><td><b>$0 for Month 1</b>, then <b>$150/month</b></td></tr>
+          <tr><td>Content planning &amp; social distribution</td><td>Included with the pilot</td></tr>
+          <tr><td>Edited testimonial / short-form video creative</td><td><b>Up to $80 per finished asset</b></td></tr>
+          <tr><td>Static ad creative</td><td>Included where simple; quoted separately if custom production is needed</td></tr>
+          <tr><td>Website / landing-page updates</td><td><b>Up to $100 per page or meaningful update</b></td></tr>
+          <tr><td>Google Ads review</td><td>Included in Month 1</td></tr>
+          <tr><td>Ongoing Google Ads management, if needed</td><td><b>$150/month</b></td></tr>
+          <tr><td>Advertising spend</td><td>Paid directly to Google / Meta; no markup</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
+  <section>
+    <div class="sechead">
+      <span class="kicker">Starting principle</span>
+      <h2>We do not need to turn on every channel at once</h2>
+      <p class="principle">We can begin with the areas that make the most sense for Nova Dental, prove what works, and build from there.</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="closing">
+  <div class="closing-inner">
+    <span class="kicker">The goal</span>
+    <p class="goal">A simple marketing engine that helps more local patients <em>find Nova Dental, trust the practice, and book an appointment</em>.</p>
+    <footer>
+      <span>Prepared by Glace for Nova Dental Cupertino</span>
+      <a href="https://glace.sh">glace.sh</a>
+    </footer>
   </div>
-
-  <h2>How we take it into action</h2>
-  <div class="flow">
-    <div class="flow-line"><span>Understand</span><span>Create</span><span>Distribute</span><span>Measure</span><span>Improve</span></div>
-    <p>We first understand what Nova Dental is already doing, what is working, and which treatments or patient segments matter most. From there, we create the content and campaigns, distribute them across the right channels, measure the response, and continuously improve the mix.</p>
-  </div>
-
-  <h2>Introductory Pilot Pricing</h2>
-  <p class="sub" style="margin:-6px 0 14px">The idea is to start with a low-risk first month, learn what is worth continuing, and then agree on the ongoing scope together.</p>
-  <div class="tablewrap">
-    <table>
-      <thead><tr><th>Area</th><th>Introductory pricing</th></tr></thead>
-      <tbody>
-        <tr><td>Initial marketing review &amp; growth plan</td><td>Included</td></tr>
-        <tr><td>Search + AI visibility / AEO / SEO</td><td><b>$0 for Month 1</b>, then <b>$100/month</b></td></tr>
-        <tr><td>Meta / Instagram campaign setup &amp; management</td><td><b>$0 for Month 1</b>, then <b>$150/month</b></td></tr>
-        <tr><td>Content planning &amp; social distribution</td><td>Included with the pilot</td></tr>
-        <tr><td>Edited testimonial / short-form video creative</td><td><b>Up to $80 per finished asset</b></td></tr>
-        <tr><td>Static ad creative</td><td>Included where simple; quoted separately if custom production is needed</td></tr>
-        <tr><td>Website / landing-page updates</td><td><b>Up to $100 per page or meaningful update</b></td></tr>
-        <tr><td>Google Ads review</td><td>Included in Month 1</td></tr>
-        <tr><td>Ongoing Google Ads management, if needed</td><td><b>$150/month</b></td></tr>
-        <tr><td>Advertising spend</td><td>Paid directly to Google / Meta; no markup</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2 style="margin-bottom:6px">Starting principle</h2>
-  <p class="principle">We do not need to turn on every channel at once. We can begin with the areas that make the most sense for Nova Dental, prove what works, and build from there.</p>
-
-  <p class="goal">The goal: create a simple marketing engine that helps more local patients find Nova Dental, trust the practice, and take the next step toward an appointment.</p>
-
-  <footer>
-    <span>Prepared by Glace for Nova Dental Cupertino</span>
-    <a href="https://glace.sh">glace.sh</a>
-  </footer>
 </div>
 </body>
 </html>
