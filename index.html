@@ -183,34 +183,54 @@
 
   /* sources card: who carries her today vs what machines can't see */
   .src-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6vw,34px)}
-  .srcrow{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
-  .srcrow:last-of-type{border-bottom:0}
-  .srcrow b{font:600 .93rem var(--sans);color:var(--ink);white-space:nowrap}
-  .srcrow .desc{flex:1;font-size:.82rem;line-height:1.45;color:var(--muted)}
-  .srccnt{font:600 .82rem var(--sans);color:#1D4FB8;white-space:nowrap}
-  .src-note{margin:12px 0 0;font-size:.84rem;line-height:1.55;color:var(--muted)}
+  .cite{display:grid;grid-template-columns:132px 1fr 30px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+  .cite:last-of-type{border-bottom:0}
+  .cname{font:600 .9rem var(--sans);color:var(--ink)}
+  .cbar{height:8px;border-radius:4px;background:#E9EDF4;overflow:hidden}
+  .cbar i{display:block;height:100%;border-radius:4px;background:#2F6BE0}
+  .ccnt{font:600 .86rem var(--sans);color:var(--ink);text-align:right}
+  .cite-foot{margin:12px 0 0;font-size:.82rem;line-height:1.55;color:var(--muted)}
+  .unread-line{margin:14px 0 12px;font-size:.9rem;line-height:1.5;color:var(--ink-soft)}
+  .unread-line b{color:var(--ink)}
+  .truth{
+    padding:13px 16px;background:#F4F7FD;border-left:3px solid #2F6BE0;border-radius:0 10px 10px 0;
+    font-family:var(--serif);font-optical-sizing:auto;font-size:1.06rem;line-height:1.5;color:var(--ink);
+  }
+  .whynext{margin:12px 0 0;font:600 .72rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#1D4FB8}
   .src-note b{color:var(--ink)}
 
-  /* why-invisible explainer */
-  .explain{margin-top:clamp(12px,1.6vw,18px)}
-  .explain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px);margin-top:4px}
-  .ex .exn{
-    display:inline-flex;align-items:center;justify-content:center;
-    width:28px;height:28px;border-radius:50%;margin-bottom:8px;
-    background:#E3ECFB;color:#1D4FB8;font:600 .8rem var(--sans);
+  /* why-invisible proof: chat + crawler view */
+  .explain{margin-top:0}
+  .proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,22px);margin-top:6px}
+  .chatmock{
+    display:flex;flex-direction:column;
+    border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#FBFCFE;
   }
-  .ex b{display:block;font:600 .95rem var(--sans);color:var(--ink);margin-bottom:4px}
-  .ex p{margin:0;font-size:.88rem;line-height:1.6;color:var(--ink-soft)}
-  .ex-quote{
-    display:flex;gap:12px;align-items:flex-start;
-    margin-top:18px;padding:14px 18px;
-    background:#F4F7FD;border-left:3px solid #2F6BE0;border-radius:0 12px 12px 0;
+  .proof-head{
+    display:flex;align-items:center;gap:8px;
+    font:600 .88rem var(--sans);color:var(--ink);
+    padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:12px;
   }
-  .ex-quote blockquote{
-    margin:0;font-family:var(--serif);font-style:italic;font-optical-sizing:auto;
-    font-size:1.02rem;line-height:1.55;color:var(--ink);
+  .ph-ico{
+    flex:none;width:26px;height:26px;border-radius:50%;
+    background:#EFF3FB;display:grid;place-items:center;color:#1D4FB8;
   }
-  .ex-quote cite{display:block;margin-top:6px;font:500 .78rem var(--sans);font-style:normal;color:var(--muted)}
+  .ph-ico svg{width:14px;height:14px}
+  .bubble{
+    max-width:88%;padding:10px 14px;border-radius:16px;
+    font-size:.9rem;line-height:1.55;margin-bottom:10px;
+  }
+  .bubble.user{margin-left:auto;background:#E3ECFB;color:#153E8C;border-bottom-right-radius:4px}
+  .bubble.ai{background:#F0F2F6;color:var(--ink);border-bottom-left-radius:4px}
+  .proof-cap{margin-top:auto;padding-top:8px;font-size:.78rem;line-height:1.45;color:var(--muted)}
+  .browsermock{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;margin-bottom:10px}
+  .bm-bar{display:flex;align-items:center;gap:10px;background:#EEF1F6;padding:8px 12px;border-bottom:1px solid var(--line)}
+  .bm-dots{display:inline-flex;gap:5px}
+  .bm-dots i{width:9px;height:9px;border-radius:50%;background:#E5484D}
+  .bm-dots i:nth-child(2){background:#F5B942}
+  .bm-dots i:nth-child(3){background:#34A853}
+  .bm-url{font:500 .76rem var(--sans);color:var(--muted);background:#fff;border-radius:6px;padding:3px 10px;flex:1}
+  .bm-body{min-height:118px;padding:14px;font-size:.8rem;color:#9AA3B2}
   .ex-fix{margin:16px 0 0;font-size:.92rem;line-height:1.6;color:var(--ink-soft)}
   .ex-fix b{color:var(--ink)}
 
@@ -359,7 +379,7 @@
   @media (max-width:1020px){
     .badges{grid-template-columns:1fr 1fr}
     .oppgrid{grid-template-columns:1fr}
-    .explain-grid{grid-template-columns:1fr}
+    .proof-grid{grid-template-columns:1fr}
     .src-grid{grid-template-columns:1fr}
     .s1grid{grid-template-columns:1fr}
   }
@@ -511,11 +531,11 @@
           <div class="src-grid">
           <div>
             <div class="pillrow-k">What AI actually cited when it named Nova Dental</div>
-            <div class="srcrow"><b>Zocdoc</b><span class="desc">directory listing</span><span class="srccnt">cited 8×</span></div>
-            <div class="srcrow"><b>The practice's homepage</b><span class="desc">only the "accepting new patients" line gets through</span><span class="srccnt">5×</span></div>
-            <div class="srcrow"><b>Opencare</b><span class="desc">the listing that carries the Invisalign signal</span><span class="srccnt">3×</span></div>
-            <div class="srcrow"><b>Birdeye</b><span class="desc">review pages</span><span class="srccnt">1×</span></div>
-            <div class="srcrow"><b>Google reviews &amp; Business Profile</b><span class="desc">the reputation feeding every answer</span></div>
+            <div class="cite"><span class="cname">Zocdoc</span><span class="cbar"><i style="width:100%"></i></span><span class="ccnt">8×</span></div>
+            <div class="cite"><span class="cname">Your homepage</span><span class="cbar"><i style="width:62%"></i></span><span class="ccnt">5×</span></div>
+            <div class="cite"><span class="cname">Opencare</span><span class="cbar"><i style="width:38%"></i></span><span class="ccnt">3×</span></div>
+            <div class="cite"><span class="cname">Birdeye</span><span class="cbar"><i style="width:13%"></i></span><span class="ccnt">1×</span></div>
+            <p class="cite-foot">Plus your Google reviews &amp; Business Profile behind every answer. From the homepage, only the "accepting new patients" line gets through.</p>
           </div>
           <div>
             <div class="pillrow-k">What Google &amp; ChatGPT cannot see yet</div>
@@ -529,24 +549,36 @@
               <span class="pill pill-out">preventive page</span>
               <span class="pill pill-out">restorative page</span>
             </div>
-            <p class="src-note"><b>Every one of these pages already exists on your website.</b> They just are not readable by Google and AI crawlers — the words on them never leave the browser. So the visibility you have today is borrowed, and it is not coming from where it should: <b>your own website, the single source of truth that speaks for you</b>. Here is why:</p>
+            <p class="unread-line"><b>All eight pages exist on your website</b> — machines just can't read them.</p>
+            <div class="truth">Your visibility is borrowed. It should come from your own website — <b>the single source of truth that speaks for you</b>.</div>
+            <p class="whynext">Here is why &darr;</p>
           </div>
         </div>
       </div>
 
         <div class="wcard explain">
         <div class="wcard-h">Why a beautiful website can still be invisible</div>
-        <div class="explain-grid">
-          <div class="ex"><span class="exn">1</span><b>AI assistants can't read the pages</b>
-          <p>The website is built entirely in JavaScript. Patients see it perfectly — but ChatGPT and Gemini receive an empty page. The implant, veneer, and kids-dentistry pages you wrote never reach them.</p></div>
-          <div class="ex"><span class="exn">2</span><b>Google has no map, and no labels</b>
-          <p>There is no sitemap telling Google which pages exist, and no page has a title or description — so even when Google finds a page, it can't tell what that page is about.</p></div>
-          <div class="ex"><span class="exn">3</span><b>So the recommendations go elsewhere</b>
-          <p>Competitors' treatment pages are fully readable, so AI reads and cites their websites directly. Nova Dental gets recommended only through directories and reviews — visibility that is borrowed, not owned.</p></div>
-        </div>
-        <div class="ex-quote">
-          <blockquote>"The site is currently exposing only a JavaScript shell to my web reader, so I can't reliably see the actual dental-implant page copy."
-          <cite>— ChatGPT, when asked to read novadentalcupertino.com/dental-implants (September 2026)</cite></blockquote>
+        <div class="proof-grid">
+          <div class="chatmock">
+            <div class="proof-head">
+              <span class="ph-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.6A8.5 8.5 0 1 1 21 12z"/></svg></span>
+              ChatGPT
+            </div>
+            <div class="bubble user">Read novadentalcupertino.com/dental-implants</div>
+            <div class="bubble ai">"The site is currently exposing only a JavaScript shell to my web reader, so I can't reliably see the actual dental-implant page copy."</div>
+            <p class="proof-cap">ChatGPT's actual reply, September 2026</p>
+          </div>
+          <div class="chatmock">
+            <div class="proof-head">
+              <span class="ph-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.6 5.4 4.6 9.4 10 10-5.4.6-9.4 4.6-10 10-.6-5.4-4.6-9.4-10-10 5.4-.6 9.4-4.6 10-10z"/></svg></span>
+              Google &amp; Gemini crawlers
+            </div>
+            <div class="browsermock">
+              <div class="bm-bar"><span class="bm-dots"><i></i><i></i><i></i></span><span class="bm-url">novadentalcupertino.com/dental-implants</span></div>
+              <div class="bm-body">Please ensure Javascript is enabled for purposes of website accessibility</div>
+            </div>
+            <p class="proof-cap">The entire page their crawlers receive — Google and Gemini cannot read your website either</p>
+          </div>
         </div>
         <p class="ex-fix"><b>The fix changes nothing patients see.</b> Same design, same words — we serve them in a form machines can read, add page titles and structured data, and publish a sitemap. One pass, and every treatment page benefits at once.</p>
       </div>
