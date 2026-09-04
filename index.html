@@ -288,7 +288,53 @@
   .cardbox:nth-child(even){background:var(--box-blue)}
   .cardbox.wide{grid-column:1/-1}
   .cardbox.wide ul{columns:2;column-gap:40px}
-  .scope-later{padding:clamp(16px,2vw,22px) clamp(22px,2.8vw,32px)}
+  /* scope: three identical-anatomy cards with an investment slot */
+  .scope3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);align-items:stretch}
+  .scard{
+    display:flex;flex-direction:column;
+    border-radius:var(--radius-box);padding:clamp(20px,2.6vw,28px);
+    box-shadow:0 24px 60px -36px rgba(16,23,42,.35);
+  }
+  .scard:nth-child(odd){background:var(--box-warm)}
+  .scard:nth-child(even){background:var(--box-blue)}
+  .sc-label{
+    display:flex;align-items:center;gap:10px;
+    font:600 .7rem var(--sans);letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent-deep);margin-bottom:12px;
+  }
+  .sc-label .n{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:28px;height:28px;border-radius:50%;
+    background:#fff;color:var(--accent-deep);border:1px solid var(--accent-mid);
+    font:600 .78rem var(--sans);flex-shrink:0;
+  }
+  .sc-h{
+    display:block;font-family:var(--serif);font-weight:500;font-optical-sizing:auto;
+    font-size:clamp(1.18rem,1.6vw,1.34rem);line-height:1.28;letter-spacing:-.008em;
+    color:var(--ink);margin:0 0 6px;text-wrap:balance;
+  }
+  .sc-sub{margin:0 0 10px;font-size:.9rem;line-height:1.55;color:var(--muted)}
+  .scard ul{margin:0}
+  .scard li{font-size:.92rem}
+  .sc-out{
+    margin:14px 0 0;margin-top:auto;padding:10px 14px;
+    background:#fff;border-radius:12px;
+    font:600 .86rem var(--sans);line-height:1.5;color:#1E7A4A;
+  }
+  .scard ul{margin-bottom:14px}
+  .price-slot{
+    margin-top:14px;padding-top:12px;border-top:1.5px dashed var(--line-2);
+    display:flex;justify-content:space-between;align-items:baseline;
+  }
+  .ps-k{font:600 .68rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .ps-v{
+    font-family:var(--serif);font-weight:500;font-optical-sizing:auto;
+    font-size:1.3rem;color:#2F6BE0;
+  }
+  .scope-later{
+    margin-top:clamp(14px,2vw,20px);border-radius:18px;padding:clamp(16px,2vw,22px) clamp(22px,2.8vw,32px);
+    background:var(--box-blue);
+  }
   .scope-later p{margin:0;font-size:.95rem;line-height:1.65;color:var(--ink-soft)}
   .scope-later b{color:var(--ink)}
   .cardbox.wide li{break-inside:avoid}
@@ -387,6 +433,7 @@
     .proof-grid{grid-template-columns:1fr}
     .src-grid{grid-template-columns:1fr}
     .s1grid{grid-template-columns:1fr}
+    .scope3{grid-template-columns:1fr}
   }
   @media (max-width:840px){
     .helpgrid{grid-template-columns:1fr}
@@ -612,44 +659,50 @@
       <h2>What Glace can help with</h2>
       <p>Three workstreams, in the order that unblocks the most.</p>
     </div>
-    <div class="helpgrid">
+    <div class="scope3">
 
-      <div class="cardbox wide">
-        <h3><span class="n">1</span>Make your website readable — to Google, Gemini, and every AI</h3>
-        <p class="sub">Website and SEO &amp; AI visibility, as one workstream. Your pages stay exactly as patients see them — we change what machines receive.</p>
+      <div class="scard">
+        <div class="sc-label"><span class="n">1</span>Website · SEO · AI visibility</div>
+        <h3 class="sc-h">Make your website readable to Google, Gemini &amp; every AI</h3>
+        <p class="sc-sub">Pages stay exactly as patients see them — machines finally get to read them.</p>
         <ul>
-          <li>Every page indexed and readable by Google, Gemini, ChatGPT, and any AI tool's crawler</li>
-          <li>The basics done right: sitemap, page titles, descriptions, structured data</li>
-          <li>Blogs that say what pages can't — what Dr. Gonsalves focuses on, how the practice is different, the treatments patients ask about</li>
+          <li>All pages indexed &amp; readable by AI crawlers</li>
+          <li>Sitemap, titles, descriptions, structured data</li>
+          <li>Blogs on what you do &amp; what makes the practice different</li>
         </ul>
-        <p class="aside">Once the pages are indexed, recommendations start unblocking on their own — AI and search visibility improve together. This is the no-brainer first step; everything else builds on it.</p>
+        <p class="sc-out">Unblocks recommendations — the no-brainer first step.</p>
+        <div class="price-slot"><span class="ps-k">Investment</span><span class="ps-v">—</span></div>
       </div>
 
-      <div class="cardbox">
-        <h3><span class="n">2</span>Show patients who you are — with video</h3>
-        <p class="sub">Open the organic channel. Video goes a long way.</p>
+      <div class="scard">
+        <div class="sc-label"><span class="n">2</span>Organic · video &amp; social</div>
+        <h3 class="sc-h">Show patients who you are — with video</h3>
+        <p class="sc-sub">Open the organic channel. Video goes a long way.</p>
         <ul>
-          <li>Patient testimonial videos — let people see how patients talk about you</li>
-          <li>Doctor-led explainers: Dr. Gonsalves on the treatments she focuses on</li>
-          <li>Posted where patients look: your website, Meta &amp; Instagram</li>
+          <li>Patient testimonial videos</li>
+          <li>Doctor-led explainer videos with Dr.&nbsp;Gonsalves</li>
+          <li>Posted on your website, Meta &amp; Instagram</li>
         </ul>
-        <p class="aside">One good patient story becomes a testimonial video, a social post, and an ad — instead of living in only one place.</p>
+        <p class="sc-out">One patient story becomes a testimonial, a post, and an ad.</p>
+        <div class="price-slot"><span class="ps-k">Investment</span><span class="ps-v">—</span></div>
       </div>
 
-      <div class="cardbox">
-        <h3><span class="n">3</span>Reach local patients with ads</h3>
-        <p class="sub">Hyper-local campaigns where you control exactly who sees you.</p>
+      <div class="scard">
+        <div class="sc-label"><span class="n">3</span>Paid · local ads</div>
+        <h3 class="sc-h">Reach local patients, precisely</h3>
+        <p class="sc-sub">Hyper-local campaigns where you control exactly who sees you.</p>
         <ul>
-          <li>Meta &amp; Instagram campaigns targeted to your neighborhoods</li>
-          <li>Google Ads beyond "new patients" — treatments and urgent care too</li>
-          <li>Optimized toward booked appointments, not clicks or followers</li>
+          <li>Meta &amp; Instagram campaigns for your neighborhoods</li>
+          <li>Google Ads beyond "new patients" — treatments &amp; urgent care</li>
+          <li>Optimized to booked appointments, not clicks</li>
         </ul>
+        <p class="sc-out">Every dollar aimed at patients near the practice.</p>
+        <div class="price-slot"><span class="ps-k">Investment</span><span class="ps-v">—</span></div>
       </div>
 
-      <div class="cardbox wide scope-later">
-        <p><b>Later, if we agree it is worth it:</b> a booking flow that lives on your own website, instead of redirecting patients elsewhere. <b>And throughout:</b> simple tracking of what actually creates patient inquiries, so effort keeps shifting to what works.</p>
-      </div>
-
+    </div>
+    <div class="scope-later">
+      <p><b>Later, if we agree it is worth it:</b> a booking flow that lives on your own website, instead of redirecting patients elsewhere. <b>And throughout:</b> simple tracking of what actually creates patient inquiries, so effort keeps shifting to what works.</p>
     </div>
   </section>
 
