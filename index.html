@@ -89,32 +89,52 @@
   .lede strong{color:#14171F;font-weight:600}
   .lede .t-acc{font-weight:600}
 
-  /* ---- findings: homepage stat voice + hairline signal cards ---- */
-  .statrow{
-    display:grid;grid-template-columns:repeat(4,1fr);
-    gap:clamp(16px,2.4vw,28px);margin-bottom:clamp(24px,3.4vw,38px);
+  /* ---- working / opportunities panels ---- */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,22px);margin-bottom:clamp(14px,2vw,22px)}
+  .panel{
+    border-radius:var(--radius-box);padding:clamp(20px,2.6vw,30px);
+    box-shadow:0 24px 60px -36px rgba(16,23,42,.35);
   }
-  .stat{border-top:1px solid var(--line-2);padding-top:14px}
-  .stat-n{
-    font-family:var(--serif);font-weight:500;font-optical-sizing:auto;
-    font-size:clamp(2rem,3.6vw,2.9rem);line-height:1;letter-spacing:-.012em;
-    color:var(--ink);
+  .panel-work{background:var(--box-blue)}
+  .panel-opp{background:var(--box-warm)}
+  .panel-h{
+    display:flex;align-items:center;gap:10px;
+    font:600 .7rem var(--sans);letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent-deep);margin-bottom:18px;
   }
-  .stat-n small{font-size:.5em;color:var(--muted);font-family:var(--sans);font-weight:500;letter-spacing:0}
-  .stat p{margin:8px 0 0;font-size:.88rem;line-height:1.55;color:var(--muted)}
-  .findgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}
-  .finding{
+  .pitem{display:flex;gap:14px;align-items:flex-start;margin:0 0 16px}
+  .pitem:last-child{margin-bottom:0}
+  .picon{
+    flex:none;width:40px;height:40px;border-radius:50%;
+    background:#fff;border:1px solid var(--accent-mid);
+    display:grid;place-items:center;color:#246085;
+  }
+  .picon svg{width:20px;height:20px}
+  .pitem b{
+    display:block;font-family:var(--serif);font-weight:500;font-optical-sizing:auto;
+    font-size:1.08rem;letter-spacing:-.008em;color:var(--ink);margin-bottom:2px;
+  }
+  .pitem p{margin:0;font-size:.92rem;line-height:1.58;color:var(--ink-soft)}
+
+  /* ---- AI mention meter card ---- */
+  .meters{
     background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);
-    padding:clamp(18px,2.4vw,26px);
+    padding:clamp(20px,2.6vw,30px);
   }
-  .finding .take{
+  .meters-head{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:20px}
+  .meters-n{
     font-family:var(--serif);font-weight:500;font-optical-sizing:auto;
-    font-size:clamp(1.1rem,1.5vw,1.3rem);line-height:1.3;letter-spacing:-.008em;
-    color:var(--ink);margin:0 0 8px;text-wrap:balance;
+    font-size:clamp(2.4rem,4vw,3.2rem);line-height:1;letter-spacing:-.012em;color:#246085;
   }
-  .finding p{margin:0;font-size:.93rem;line-height:1.62;color:var(--ink-soft)}
-  .finding p b{color:var(--ink);font-weight:600}
-  .scan-note{margin-top:16px;font-size:.85rem;color:var(--muted);max-width:80ch}
+  .meters-n small{font-size:.5em;color:#246085}
+  .meters-head p{margin:0;font-size:.95rem;color:var(--ink-soft);max-width:44ch}
+  .mrow{display:grid;grid-template-columns:minmax(160px,240px) 1fr 52px;gap:14px;align-items:center;margin:10px 0}
+  .mlabel{font-size:.9rem;line-height:1.35;color:var(--ink-soft);text-align:right}
+  .mtrack{height:10px;border-radius:5px;background:var(--accent-soft);overflow:hidden}
+  .mfill{height:100%;border-radius:5px;background:#246085;min-width:4px}
+  .mfill.zero{background:transparent;min-width:0}
+  .mval{font:600 .88rem var(--sans);color:var(--ink);text-align:left}
+  .mval.zero{color:var(--muted);font-weight:500}
 
   /* ---- section heads ---- */
   section{margin-bottom:clamp(44px,6.5vw,80px)}
@@ -260,31 +280,70 @@
 
   <section>
     <div class="sechead">
-      <span class="kicker">What we found</span>
-      <h2>We tested how AI assistants talk about Nova Dental</h2>
-      <p>Before writing this plan, we asked ChatGPT and Gemini the questions prospective patients around Cupertino actually ask, and read every answer for Nova Dental's name.</p>
+      <span class="kicker">Where Nova Dental stands</span>
+      <h2>What's working — and the <span class="t-acc">opportunities in hand</span></h2>
+      <p>We studied how patients find Nova Dental today: Google presence, reviews, the website, and what ChatGPT and Gemini say when patients ask for a dentist.</p>
     </div>
-    <div class="statrow">
-      <div class="stat"><div class="stat-n">60</div><p>AI answers analyzed across ChatGPT and Gemini</p></div>
-      <div class="stat"><div class="stat-n">20<small>%</small></div><p>of those answers included Nova Dental — low visibility overall</p></div>
-      <div class="stat"><div class="stat-n">67<small>%</small></div><p>visibility when patients ask who is accepting new patients — the strongest area</p></div>
-      <div class="stat"><div class="stat-n">6<small>&thinsp;of&thinsp;10</small></div><p>question areas never mentioned the practice at all</p></div>
+
+    <div class="duo">
+      <div class="panel panel-work">
+        <div class="panel-h">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          Working well today
+        </div>
+        <div class="pitem">
+          <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l2.9 5.9 6.6 1-4.7 4.6 1.1 6.5L12 17.4l-5.9 3.1 1.1-6.5L2.5 9.4l6.6-1z"/></svg></span>
+          <div><b>A 5-star reputation AI already quotes</b>
+          <p>When AI mentions the practice, it cites the perfect patient rating and warm reviews.</p></div>
+        </div>
+        <div class="pitem">
+          <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 11.5-8 11.5S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><b>Details AI gets right, every time</b>
+          <p>Address, phone, hours, and the insurance list come through correct and consistent.</p></div>
+        </div>
+        <div class="pitem">
+          <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg></span>
+          <div><b>Already recommended for availability</b>
+          <p>Asked who is accepting new patients, AI names Nova Dental two times out of three.</p></div>
+        </div>
+      </div>
+
+      <div class="panel panel-opp">
+        <div class="panel-h">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          Opportunities in hand
+        </div>
+        <div class="pitem">
+          <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 7V4M8 3.5h8"/><circle cx="9" cy="13" r="1" fill="currentColor"/><circle cx="15" cy="13" r="1" fill="currentColor"/></svg></span>
+          <div><b>AI recommendations for treatments</b>
+          <p>Implants, Invisalign, urgent care, kids &amp; family, weekends: these searches are wide open.</p></div>
+        </div>
+        <div class="pitem">
+          <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+          <div><b>Search foundations on the website</b>
+          <p>Treatment pages, titles, and details search engines can read — quick technical wins waiting.</p></div>
+        </div>
+        <div class="pitem">
+          <span class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l14-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+          <div><b>Social ads not switched on yet</b>
+          <p>No Meta / Instagram campaigns are running today — an untapped local channel.</p></div>
+        </div>
+      </div>
     </div>
-    <div class="findgrid">
-      <div class="finding">
-        <p class="take">The reputation is real, and AI can see part of it.</p>
-        <p>When patients ask about the <b>best or top-rated dentists in Cupertino</b>, or who is taking new patients, Nova Dental and Dr. Gonsalves do appear, with the right details. The foundation is there to build on.</p>
+
+    <div class="meters">
+      <div class="meters-head">
+        <div class="meters-n">20<small>%</small></div>
+        <p><b>of AI answers mention Nova Dental today.</b> Here is where those mentions come from — and the room to grow.</p>
       </div>
-      <div class="finding">
-        <p class="take">The searches that bring new patients come up empty.</p>
-        <p>For <b>treatment-specific questions</b> (implants, veneers, Invisalign), <b>urgent and same-day care</b>, <b>children &amp; family care</b>, evening/weekend availability, and symptom searches, Nova Dental's name did not come up yet.</p>
-      </div>
-      <div class="finding">
-        <p class="take">The website's content is not reaching AI systems yet.</p>
-        <p>The way novadentalcupertino.com is built, its text appears only in the browser, so AI assistants cannot yet read the <b>services, team, and hours</b> it describes. Making that content readable to them is foundational, and one of the first things we would take on.</p>
-      </div>
+      <div class="mrow"><div class="mlabel">Accepting new patients</div><div class="mtrack"><div class="mfill" style="width:67%"></div></div><div class="mval">67%</div></div>
+      <div class="mrow"><div class="mlabel">Best dentist in town</div><div class="mtrack"><div class="mfill" style="width:50%"></div></div><div class="mval">50%</div></div>
+      <div class="mrow"><div class="mlabel">Top-rated care</div><div class="mtrack"><div class="mfill" style="width:50%"></div></div><div class="mval">50%</div></div>
+      <div class="mrow"><div class="mlabel">Insurance &amp; coverage</div><div class="mtrack"><div class="mfill" style="width:33%"></div></div><div class="mval">33%</div></div>
+      <div class="mrow"><div class="mlabel">Treatments — implants, veneers, Invisalign</div><div class="mtrack"><div class="mfill zero"></div></div><div class="mval zero">0%</div></div>
+      <div class="mrow"><div class="mlabel">Urgent, family, weekend &amp; symptom searches</div><div class="mtrack"><div class="mfill zero"></div></div><div class="mval zero">0%</div></div>
     </div>
-    <p class="scan-note">From the Glace AI visibility scan of Nova Dental, September 2026: ten common patient questions, each asked three times on ChatGPT and Gemini. The full report is available to review together.</p>
+    <p class="scan-note">From the Glace AI visibility scan of Nova Dental, September 2026: ten common patient questions, each asked three times on ChatGPT and Gemini — 60 answers in total. The full report is available to review together.</p>
   </section>
 
   <section>
