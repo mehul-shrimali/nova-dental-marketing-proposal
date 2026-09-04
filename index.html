@@ -408,6 +408,11 @@
   footer a{color:var(--on-deep);text-decoration:none}
   footer a:hover{color:#fff;text-decoration:underline}
 
+  /* grid children may not force their track wider than the card */
+  .proof-grid > *,.src-grid > *,.s1grid > *,.srow > *,.duo > *{min-width:0}
+  .bm-bar{min-width:0}
+  .bubble{word-break:break-word}
+
   /* hover life: cards lift softly under the cursor */
   .badge,.wcard,.srow,.workwide{
     transition:transform .28s cubic-bezier(0.22,0.61,0.36,1),box-shadow .28s cubic-bezier(0.22,0.61,0.36,1);
