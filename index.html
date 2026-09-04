@@ -94,6 +94,10 @@
     background:#E7EDF9;border-radius:var(--radius-box);
     padding:clamp(24px,3.4vw,44px);
   }
+  .stand-work{background:#E7F3EA} /* soft success green: this block is the good news */
+  .stand-work .subhead{color:#1E7A4A}
+  .stand-opp{background:#E7EDF9}
+  .stand + .stand{margin-top:clamp(14px,2vw,20px)}
   .stand .sechead p{color:var(--ink-soft)}
   .subhead{
     display:flex;align-items:center;gap:10px;
@@ -342,7 +346,7 @@
       <h2>Where Nova Dental <span class="t-acc">stands today</span></h2>
       <p>We studied how patients find Nova Dental: Google presence, reviews, the website, and what ChatGPT and Gemini say when patients ask for a dentist.</p>
     </div>
-    <div class="stand">
+    <div class="stand stand-work">
 
       <div class="subhead"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Working well today</div>
       <div class="badges">
@@ -383,6 +387,9 @@
         </div>
       </div>
 
+    </div>
+
+    <div class="stand stand-opp">
       <div class="subhead"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg> Opportunities ahead</div>
       <div class="oppgrid">
         <div class="oppcol">
