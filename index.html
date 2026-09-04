@@ -407,6 +407,27 @@
   footer a{color:var(--on-deep);text-decoration:none}
   footer a:hover{color:#fff;text-decoration:underline}
 
+  /* hover life: cards lift softly under the cursor */
+  .badge,.wcard,.srow,.workwide{
+    transition:transform .28s cubic-bezier(0.22,0.61,0.36,1),box-shadow .28s cubic-bezier(0.22,0.61,0.36,1);
+  }
+  .badge:hover,.workwide:hover{
+    transform:translateY(-4px);
+    box-shadow:0 22px 44px -22px rgba(16,23,42,.45);
+  }
+  .wcard:hover,.srow:hover{
+    transform:translateY(-3px);
+    box-shadow:0 22px 44px -26px rgba(16,23,42,.4);
+  }
+  .pill{transition:background .2s ease,border-color .2s ease}
+  .pill-ok:hover{background:#D3EBDC}
+  .pill-in:hover{background:#D6E4FA}
+  .pill-out:hover{border-color:var(--muted);color:var(--ink-soft)}
+  @media (prefers-reduced-motion:reduce){
+    .badge,.wcard,.srow,.workwide{transition:none}
+    .badge:hover,.wcard:hover,.srow:hover,.workwide:hover{transform:none}
+  }
+
   @media (max-width:1140px){
     .badges{grid-template-columns:1fr 1fr}
   }
