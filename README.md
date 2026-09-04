@@ -1,4 +1,4 @@
-# A Marketing Growth Plan for Nova Dental Cupertino
+# A Practice Growth Plan for Nova Dental
 
 Nova Dental already has a strong foundation across its website, reviews, and Google presence. Our goal is not to replace what is already working. We can work alongside the existing setup and take responsibility for the parts of marketing that help more prospective patients **discover, trust, and choose the practice**.
 
@@ -25,20 +25,20 @@ Turn the trust Nova Dental has already built with patients into reusable marketi
 
 One good patient story can become a testimonial video, social post, website asset, and paid-ad creative instead of living in only one place.
 
-### 3. Paid Patient Acquisition
-Use paid media to bring Nova Dental in front of more prospective patients around Cupertino.
+### 3. New-Patient Acquisition
+Use paid campaigns to bring Nova Dental in front of more prospective patients around Cupertino.
 
 - Meta / Instagram campaign setup
 - Local targeting around the practice
 - New-patient and treatment-specific campaigns
 - Retargeting where useful
 - Test different creative and messages
-- Optimize toward patient inquiries and appointments — not follower count
+- Optimize toward patient inquiries and booked appointments — not follower count
 
 Google Ads can also be reviewed and managed if Nova Dental would like us to take that over.
 
-### 4. Website & Conversion
-Make small, practical website changes whenever they can help campaigns or patient conversion perform better.
+### 4. Website & Online Booking
+Make small, practical website changes that help campaigns perform better and help more visitors book an appointment.
 
 - Campaign or treatment landing pages
 - Testimonial placement
@@ -50,7 +50,7 @@ Make small, practical website changes whenever they can help campaigns or patien
 ### 5. Measurement & Ongoing Improvement
 The objective is not simply to run more marketing. We want to understand what is actually creating patient opportunities.
 
-- Track campaign inquiries and conversion signals where possible
+- Track new-patient inquiries and booking signals where possible
 - Understand which content and channels are working
 - Review performance regularly
 - Shift effort toward what is producing results
