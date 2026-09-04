@@ -288,19 +288,21 @@
   .cardbox:nth-child(even){background:var(--box-blue)}
   .cardbox.wide{grid-column:1/-1}
   .cardbox.wide ul{columns:2;column-gap:40px}
-  /* scope: three identical-anatomy cards with an investment slot */
-  .scope3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);align-items:stretch}
-  .scard{
-    display:flex;flex-direction:column;
-    border-radius:var(--radius-box);padding:clamp(20px,2.6vw,28px);
+  /* scope: one horizontal row per workstream, identical anatomy */
+  .scopestack{display:flex;flex-direction:column;gap:clamp(12px,1.6vw,18px)}
+  .srow{
+    display:grid;grid-template-columns:1.2fr 1fr .9fr;gap:clamp(18px,2.6vw,36px);
+    border-radius:var(--radius-box);padding:clamp(20px,2.6vw,28px) clamp(22px,2.8vw,32px);
     box-shadow:0 24px 60px -36px rgba(16,23,42,.35);
   }
-  .scard:nth-child(odd){background:var(--box-warm)}
-  .scard:nth-child(even){background:var(--box-blue)}
+  .srow:nth-child(odd){background:var(--box-warm)}
+  .srow:nth-child(even){background:var(--box-blue)}
+  .sr-b,.sr-c{border-left:1px solid rgba(16,23,42,.09);padding-left:clamp(18px,2.6vw,36px)}
+  .sr-c{display:flex;flex-direction:column}
   .sc-label{
     display:flex;align-items:center;gap:10px;
     font:600 .7rem var(--sans);letter-spacing:.1em;text-transform:uppercase;
-    color:var(--accent-deep);margin-bottom:12px;
+    color:var(--accent-deep);margin-bottom:10px;
   }
   .sc-label .n{
     display:inline-flex;align-items:center;justify-content:center;
@@ -310,20 +312,18 @@
   }
   .sc-h{
     display:block;font-family:var(--serif);font-weight:500;font-optical-sizing:auto;
-    font-size:clamp(1.18rem,1.6vw,1.34rem);line-height:1.28;letter-spacing:-.008em;
+    font-size:clamp(1.2rem,1.7vw,1.42rem);line-height:1.26;letter-spacing:-.008em;
     color:var(--ink);margin:0 0 6px;text-wrap:balance;
   }
-  .sc-sub{margin:0 0 10px;font-size:.9rem;line-height:1.55;color:var(--muted)}
-  .scard ul{margin:0}
-  .scard li{font-size:.92rem}
+  .sc-sub{margin:0;font-size:.9rem;line-height:1.55;color:var(--muted)}
+  .sr-b ul{margin:2px 0 0}
+  .sr-b li{font-size:.93rem;margin:7px 0}
   .sc-out{
-    margin:14px 0 0;margin-top:auto;padding:10px 14px;
-    background:#fff;border-radius:12px;
+    margin:0;padding:10px 14px;background:#fff;border-radius:12px;
     font:600 .86rem var(--sans);line-height:1.5;color:#1E7A4A;
   }
-  .scard ul{margin-bottom:14px}
   .price-slot{
-    margin-top:14px;padding-top:12px;border-top:1.5px dashed var(--line-2);
+    margin-top:auto;padding-top:12px;border-top:1.5px dashed var(--line-2);
     display:flex;justify-content:space-between;align-items:baseline;
   }
   .ps-k{font:600 .68rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
@@ -433,7 +433,8 @@
     .proof-grid{grid-template-columns:1fr}
     .src-grid{grid-template-columns:1fr}
     .s1grid{grid-template-columns:1fr}
-    .scope3{grid-template-columns:1fr}
+    .srow{grid-template-columns:1fr;gap:14px}
+    .sr-b,.sr-c{border-left:0;padding-left:0}
   }
   @media (max-width:840px){
     .helpgrid{grid-template-columns:1fr}
@@ -659,45 +660,57 @@
       <h2>What Glace can help with</h2>
       <p>Three workstreams, in the order that unblocks the most.</p>
     </div>
-    <div class="scope3">
+    <div class="scopestack">
 
-      <div class="scard">
-        <div class="sc-label"><span class="n">1</span>Website · SEO · AI visibility</div>
-        <h3 class="sc-h">Make your website readable to Google, Gemini &amp; every AI</h3>
-        <p class="sc-sub">Pages stay exactly as patients see them — machines finally get to read them.</p>
-        <ul>
+      <div class="srow">
+        <div class="sr-a">
+          <div class="sc-label"><span class="n">1</span>Website · SEO · AI visibility</div>
+          <h3 class="sc-h">Make your website readable to Google, Gemini &amp; every AI</h3>
+          <p class="sc-sub">Pages stay exactly as patients see them — machines finally get to read them.</p>
+        </div>
+        <div class="sr-b"><ul>
           <li>All pages indexed &amp; readable by AI crawlers</li>
           <li>Sitemap, titles, descriptions, structured data</li>
           <li>Blogs on what you do &amp; what makes the practice different</li>
-        </ul>
-        <p class="sc-out">Unblocks recommendations — the no-brainer first step.</p>
-        <div class="price-slot"><span class="ps-k">Investment</span><span class="ps-v">—</span></div>
+        </ul></div>
+        <div class="sr-c">
+          <p class="sc-out">Unblocks recommendations — the no-brainer first step.</p>
+          <div class="price-slot"><span class="ps-k">Investment</span><span class="ps-v">—</span></div>
+        </div>
       </div>
 
-      <div class="scard">
-        <div class="sc-label"><span class="n">2</span>Organic · video &amp; social</div>
-        <h3 class="sc-h">Show patients who you are — with video</h3>
-        <p class="sc-sub">Open the organic channel. Video goes a long way.</p>
-        <ul>
+      <div class="srow">
+        <div class="sr-a">
+          <div class="sc-label"><span class="n">2</span>Organic · video &amp; social</div>
+          <h3 class="sc-h">Show patients who you are — with video</h3>
+          <p class="sc-sub">Open the organic channel. Video goes a long way.</p>
+        </div>
+        <div class="sr-b"><ul>
           <li>Patient testimonial videos</li>
           <li>Doctor-led explainer videos with Dr.&nbsp;Gonsalves</li>
           <li>Posted on your website, Meta &amp; Instagram</li>
-        </ul>
-        <p class="sc-out">One patient story becomes a testimonial, a post, and an ad.</p>
-        <div class="price-slot"><span class="ps-k">Investment</span><span class="ps-v">—</span></div>
+        </ul></div>
+        <div class="sr-c">
+          <p class="sc-out">One patient story becomes a testimonial, a post, and an ad.</p>
+          <div class="price-slot"><span class="ps-k">Investment</span><span class="ps-v">—</span></div>
+        </div>
       </div>
 
-      <div class="scard">
-        <div class="sc-label"><span class="n">3</span>Paid · local ads</div>
-        <h3 class="sc-h">Reach local patients, precisely</h3>
-        <p class="sc-sub">Hyper-local campaigns where you control exactly who sees you.</p>
-        <ul>
+      <div class="srow">
+        <div class="sr-a">
+          <div class="sc-label"><span class="n">3</span>Paid · local ads</div>
+          <h3 class="sc-h">Reach local patients, precisely</h3>
+          <p class="sc-sub">Hyper-local campaigns where you control exactly who sees you.</p>
+        </div>
+        <div class="sr-b"><ul>
           <li>Meta &amp; Instagram campaigns for your neighborhoods</li>
           <li>Google Ads beyond "new patients" — treatments &amp; urgent care</li>
           <li>Optimized to booked appointments, not clicks</li>
-        </ul>
-        <p class="sc-out">Every dollar aimed at patients near the practice.</p>
-        <div class="price-slot"><span class="ps-k">Investment</span><span class="ps-v">—</span></div>
+        </ul></div>
+        <div class="sr-c">
+          <p class="sc-out">Every dollar aimed at patients near the practice.</p>
+          <div class="price-slot"><span class="ps-k">Investment</span><span class="ps-v">—</span></div>
+        </div>
       </div>
 
     </div>
